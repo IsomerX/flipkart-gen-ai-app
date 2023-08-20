@@ -6,12 +6,6 @@ import formidable from "formidable";
 import { readFileSync } from "fs";
 import { client } from "@/app/helpers/constants/weviate";
 
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-};
-
 const should_save = true;
 
 const readFile = (
