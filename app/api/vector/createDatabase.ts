@@ -1,6 +1,6 @@
 import { client } from "@/app/helpers/constants/weviate";
 
-export async function POST(request: Request) {
+export async function GET(request: Request) {
     try {
         const schemaConfig = {
             class: "Covered",
