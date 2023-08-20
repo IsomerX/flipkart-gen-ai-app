@@ -258,6 +258,7 @@ const ChatPage = ({ params: { id } }: Props) => {
                 // });
             });
         if (data.gen) {
+            if (data.gen.slice(0, 2) === "No") return;
             setFinalPrompt(data.gen);
             await fetch("/api/gen", {
                 method: "POST",
