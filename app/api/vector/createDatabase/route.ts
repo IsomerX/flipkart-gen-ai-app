@@ -18,6 +18,10 @@ export async function GET(request: Request) {
                 name: "image",
                 dataType: ["blob"],
             },
+            {
+                name: "text",
+                dataType: ["string"],
+            },
         ],
     };
 

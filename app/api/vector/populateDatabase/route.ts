@@ -13,7 +13,7 @@ export async function GET(request: Request) {
 
         await client.data
             .creator()
-            .withClassName("Cover")
+            .withClassName("Covered")
             .withProperties({ image: b64, text: imgFile })
             .do();
     });
