@@ -11,6 +11,7 @@ const system_prompt =
 export async function POST(request: Request) {
     const { prompt, outboundMessages, id, model, session } =
         await request.json();
+    console.log(prompt, outboundMessages, id, model, session);
 
     if (!prompt) {
         return new Response(
@@ -31,6 +32,7 @@ export async function POST(request: Request) {
     }
 
     // ChatGPT Query
+    console.log("ASd");
     const chatOutboundMessages: GPTMessage[] = [
         {
             role: "system",
@@ -42,6 +44,7 @@ export async function POST(request: Request) {
             content: prompt,
         },
     ];
+    console.log("reached");
     const chatResponse = await query(chatOutboundMessages, id, model);
     const chatResponseSendToFrontend: GPTMessage[] = [
         ...chatOutboundMessages,
@@ -50,6 +53,7 @@ export async function POST(request: Request) {
             content: chatResponse as string,
         },
     ];
+    console.log("reached2");
 
     const genChatOutboundMessages: GPTMessage[] = [
         {
