@@ -30,9 +30,15 @@ yarn-error.log*
 .env*.local
 serviceAccountKey.json
 
+.env
+
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+pnpm-lock.*
+
+*-lock.*

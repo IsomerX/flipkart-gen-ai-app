@@ -374,12 +374,13 @@ const ChatPage = ({ params: { id } }: Props) => {
 
                                 <div className="max-w-2xl">
                                     {messageString.slice(0, 4) === "blob" ? (
-                                        <img
-                                            ref={messageRef}
-                                            className="text-base whitespace-pre-wrap"
-                                            src={messageString}
-                                            alt="chad response"
-                                        />
+                                        <div ref={messageRef}>
+                                            <img
+                                                className="text-base whitespace-pre-wrap"
+                                                src={messageString}
+                                                alt="chad response"
+                                            />
+                                        </div>
                                     ) : (
                                         <p
                                             ref={messageRef}
