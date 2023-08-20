@@ -20,5 +20,5 @@ export async function GET(request: Request) {
 
     await Promise.all(promises);
 
-    new Response("Ok");
+    return new Response("Ok");
 }

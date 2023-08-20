@@ -26,7 +26,7 @@ import {
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { LoadingScreen } from "@/app/components/loadingScreen";
+import LoadingScreen from "@/app/components/loadingScreen";
 
 type Props = {
     params: {

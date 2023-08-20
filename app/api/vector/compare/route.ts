@@ -63,7 +63,7 @@ export async function POST(request: Request) {
         const result = resImage.data.Get.Cover[index].text;
         return result;
     });
-    new Response(
+    return new Response(
         JSON.stringify({
             baseImg: testos.files.myImage?.newFilename,
             data: mapped,

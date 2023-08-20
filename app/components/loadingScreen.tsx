@@ -1,4 +1,6 @@
-export const LoadingScreen = () => {
+"use client";
+
+const LoadingScreen = () => {
     return (
         <div className="fixed top-0 left-0 h-screen w-screen grid place-items-center bg-black/30">
             <div role="status">
@@ -23,3 +25,5 @@ export const LoadingScreen = () => {
         </div>
     );
 };
+
+export default LoadingScreen;
