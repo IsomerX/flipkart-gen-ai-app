@@ -4,22 +4,25 @@ import { readFileSync, readdirSync } from "fs";
 import path from "path";
 
 export async function GET(request: Request) {
-    const dirRelativeToPublicFolder = "img";
-    const dir = path.resolve("./public", dirRelativeToPublicFolder);
-    const filenames = readdirSync(dir);
+    const schemaConfig = {
+        class: "Covered",
+        vectorizer: "img2vec-neural",
+        vectorIndexType: "hnsw",
+        moduleConfig: {
+            "img2vec-neural": {
+                imageFields: ["image"],
+            },
+        },
+        properties: [
+            {
+                name: "image",
+                dataType: ["blob"],
+            },
+        ],
+    };
 
-    const promises = filenames.map(async (imgFile) => {
-        const test = readFileSync(`${dir}/${imgFile}`);
-        const b64 = Buffer.from(test).toString("base64");
+    await client.schema.classCreator().withClass(schemaConfig).do();
+    const schemaRes = await client.schema.getter().do();
 
-        await client.data
-            .creator()
-            .withClassName("Cover")
-            .withProperties({ image: b64, text: imgFile })
-            .do();
-    });
-
-    await Promise.all(promises);
-
-    return new Response("Ok");
+    return new Response(JSON.stringify(schemaRes));
 }
