@@ -29,7 +29,7 @@ const readFile = (
     });
 };
 
-export default async function POST(request: Request) {
+export async function POST(request: Request) {
     try {
         await fs.readdir(path.join(process.cwd() + "/public", "/img"));
     } catch (error) {

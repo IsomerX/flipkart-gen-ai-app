@@ -3,7 +3,7 @@ import { client } from "@/app/helpers/constants/weviate";
 import { readFileSync, readdirSync } from "fs";
 import path from "path";
 
-export default async function GET(request: Request) {
+export async function GET(request: Request) {
     const dirRelativeToPublicFolder = "img";
     const dir = path.resolve("./public", dirRelativeToPublicFolder);
     const filenames = readdirSync(dir);
