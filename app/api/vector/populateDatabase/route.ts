@@ -3,7 +3,7 @@ import { readFileSync, readdirSync } from "fs";
 import path from "path";
 
 export async function GET(request: Request) {
-    const dirRelativeToPublicFolder = "img";
+    const dirRelativeToPublicFolder = "img2";
     const dir = path.resolve("./public", dirRelativeToPublicFolder);
     const filenames = readdirSync(dir);
 
